@@ -9,9 +9,7 @@ RUN go mod download
 
 COPY . .
 
-RUN xcaddy build master \
-    --output /caddy \
-    --with github.com/mholt/caddy-l4=/app
+RUN xcaddy build --output /caddy --with github.com/mholt/caddy-l4
 
 FROM alpine:latest
 
