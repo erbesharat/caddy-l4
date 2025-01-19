@@ -85,7 +85,6 @@ jobs:
   # try to push images from PRs or from Windows/macOS builds).
   docker:
     runs-on: ubuntu-latest
-    needs: build-test-check
     if: github.ref == 'refs/heads/master'
 
     steps:

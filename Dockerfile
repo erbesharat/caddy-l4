@@ -1,4 +1,4 @@
-FROM golang:1.20 AS builder
+FROM golang:1.23 AS builder
 
 RUN go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
 
@@ -13,7 +13,7 @@ RUN xcaddy build master \
     --output /caddy \
     --with github.com/mholt/caddy-l4=/app
 
-FROM alpine:3.18
+FROM alpine:latest
 
 LABEL org.opencontainers.image.source="github.com/erbesharat/caddy-l4"
 LABEL org.opencontainers.image.description="Caddy server with the L4 plugin"
